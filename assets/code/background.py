@@ -83,5 +83,4 @@ for i in range(0, WIDTH, 50):
 # ========================
 # SAVE FILE
 # ========================
-surface.write_to_png("jungle_background.png")
-print("Background jungle pixel-art berhasil dibuat!")
+surface.write_to_png("assets/jungle_background.png")
