@@ -6,19 +6,12 @@ surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
 ctx = cairo.Context(surface)
 
 
-# ========================
-# 1. LANGIT ORANYE GRADASI
-# ========================
 sky = cairo.LinearGradient(0, 0, 0, HEIGHT)
 sky.add_color_stop_rgb(0, 1.0, 0.65, 0.25)   # jingga atas
 sky.add_color_stop_rgb(1, 1.0, 0.75, 0.45)   # jingga bawah
 ctx.set_source(sky)
 ctx.paint()
 
-
-# ========================
-# 2. AWAN LEBIH TEBAL & REALISTIS
-# ========================
 
 def draw_cloud(cx, cy, scale=1.0):
     ctx.set_source_rgb(1.0, 0.90, 0.75)
@@ -52,10 +45,6 @@ for (cx, cy, s) in cloud_positions:
     draw_cloud(cx, cy, s)
 
 
-
-# ========================
-# 3. PEGUNUNGAN BERTUMPUK
-# ========================
 def draw_mountain(y, color, height_scale):
     ctx.set_source_rgb(*color)
     ctx.move_to(0, y)
@@ -75,9 +64,6 @@ draw_mountain(340, (0.24, 0.40, 0.24), 1.2)
 draw_mountain(360, (0.20, 0.35, 0.20), 1.0)
 
 
-# ========================
-# 6. TANAH / PLATFORM
-# ========================
 ctx.set_source_rgb(0.35, 0.2, 0.1)
 ctx.rectangle(0, 360, WIDTH, 90)
 ctx.fill()
@@ -97,5 +83,4 @@ for i in range(0, WIDTH, 50):
 # ========================
 # SAVE FILE
 # ========================
-surface.write_to_png("jungle_background.png")
-print("Background jungle pixel-art berhasil dibuat!")
+surface.write_to_png("assets/bg_utama.png")

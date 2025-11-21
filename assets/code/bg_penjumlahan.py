@@ -119,5 +119,4 @@ ctx.stroke()
 # ============================================
 # 6. SIMPAN FILE
 # ============================================
-final_surface.write_to_png("addition_background_blurred.png")
-print("Background Penjumlahan Blur berhasil dibuat!")
+final_surface.write_to_png("assets/bg_penjumlahan.png")

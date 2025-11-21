@@ -126,5 +126,4 @@ ctx.stroke()
 # ========================================
 # 6. SIMPAN
 # ========================================
-final_surface.write_to_png("forest_background_blurred.png")
-print("Background Hutan Blur berhasil dibuat!")
+final_surface.write_to_png("assets/bg_pengurangan.png")
