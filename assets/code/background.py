@@ -83,4 +83,4 @@ for i in range(0, WIDTH, 50):
 # ========================
 # SAVE FILE
 # ========================
-surface.write_to_png("assets/jungle_background.png")
+surface.write_to_png("assets/bg_utama.png")

@@ -8,9 +8,7 @@ SCREEN_HEIGHT = 450
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("FunCount")
 
-# =====================
 # LOAD ASSETS
-# =====================
 
 dashboard = pygame.image.load("assets/dashboard.png").convert_alpha()
 dashboard = pygame.transform.scale(dashboard, (SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -22,9 +20,7 @@ welcome_img = pygame.image.load("assets/welcome.png").convert_alpha()
 welcome_img = pygame.transform.scale(welcome_img, (500, 170))
 welcome_rect = welcome_img.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 120))
 
-# =====================
 # START BUTTON
-# =====================
 
 button_start_original = pygame.image.load("assets/button_start.png").convert_alpha()
 
@@ -37,9 +33,7 @@ button_start_big = pygame.transform.scale(button_start_original, BIG_SIZE)
 button_start = button_start_small
 button_start_rect = button_start.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 40))
 
-# =====================
 # DASHBOARD MODE BUTTONS
-# =====================
 
 btn_mh_original = pygame.image.load("assets/button_menghitung.png").convert_alpha()
 btn_pj_original = pygame.image.load("assets/button_penjumlahan.png").convert_alpha()
@@ -63,17 +57,13 @@ btn_mh_rect = btn_mh.get_rect(center=(SCREEN_WIDTH // 2, 130))
 btn_pj_rect = btn_pj.get_rect(center=(SCREEN_WIDTH // 2, 250))
 btn_pg_rect = btn_pg.get_rect(center=(SCREEN_WIDTH // 2, 370))
 
-# =====================
 # STATE SYSTEM
-# =====================
 
 STATE_MENU_AWAL = 0
-STATE_DASHBOARD_MODE = 1
+STATE_DASHBOARD = 1
 current_state = STATE_MENU_AWAL
 
-# =====================
 # GAME LOOP
-# =====================
 
 running = True
 while running:
@@ -89,10 +79,10 @@ while running:
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 if button_start_rect.collidepoint(mouse_pos):
                     print("Start clicked!")
-                    current_state = STATE_DASHBOARD_MODE
+                    current_state = STATE_DASHBOARD
 
         # DASHBOARD MODE
-        elif current_state == STATE_DASHBOARD_MODE:
+        elif current_state == STATE_DASHBOARD:
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 if btn_mh_rect.collidepoint(mouse_pos):
                     print("Mode Menghitung dipilih!")
@@ -101,9 +91,7 @@ while running:
                 if btn_pg_rect.collidepoint(mouse_pos):
                     print("Mode Pengurangan dipilih!")
 
-    # ==========================
     # RENDER MENU AWAL
-    # ==========================
     if current_state == STATE_MENU_AWAL:
 
         # Hover effect for start button
@@ -118,10 +106,8 @@ while running:
         screen.blit(welcome_img, welcome_rect)
         screen.blit(button_start, button_start_rect)
 
-    # ==========================
     # RENDER DASHBOARD MODE
-    # ==========================
-    elif current_state == STATE_DASHBOARD_MODE:
+    elif current_state == STATE_DASHBOARD:
 
         screen.blit(dashboard_blur, (0, 0))
 
